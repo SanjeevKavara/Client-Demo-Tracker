@@ -1,0 +1,13 @@
+.flxbox{
+    display: flex;
+    margin: 0;
+   
+
+}
+
+img{
+    height: 100vh;
+    margin: 0px;
+    width: 50%;
+    padding-right: 64px;
+}
