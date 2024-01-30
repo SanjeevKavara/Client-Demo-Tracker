@@ -1,5 +1,5 @@
 import React from 'react'
-import login from 'D:/ClientDemoTracker/cd-Tracker/src/assets/Loginphoto.png'
+import login from 'D:/ClientDemoTracker/Client-Demo-Tracker/cd-Tracker/src/assets/loginimage.png'
 import './login.css'
 import LoginForm from './LoginForm'
 

@@ -15,6 +15,9 @@ const loginService = {
         email: email
       }
       const user = await userModel.findOneUser(query);
+      if(!user){
+        return null;
+      }
       console.log("user", user);
       if (password === user.password) {
        const token = await jwt.sign({userId: user._id}, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });

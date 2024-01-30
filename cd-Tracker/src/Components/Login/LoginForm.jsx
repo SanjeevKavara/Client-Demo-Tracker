@@ -1,27 +1,52 @@
 import React from 'react'
 import './LoginForm.css'
 import LoginBtn from '../LoginBtn/LoginBtn'
-import { useRef } from 'react'
+import { useRef, useState, useEffect } from 'react'
 import postApi from '../../api/loginApi'
+import { Link, useNavigate } from 'react-router-dom'
+
+
 
 function LoginForm() {
 
     const userRef = useRef()
     const passRef = useRef();
-   
-    const handleSubmit = (e) => {
+    const [auth, setAuth] = useState(false);
+    const navigate = useNavigate();
+
+
+    const handleSubmit = async (e) => {
         e.preventDefault();
-        const user =  {
-            username : userRef.current?.value,
-            password : passRef.current?.value
+        const user = {
+            username: userRef.current?.value,
+            password: passRef.current?.value
         }
 
-        postApi(user)
+        if(user.username == ""||user.password == "")
+        {
+            console.log("Please Enter valid credentials")
+            return
+        }
 
-        console.log("user", user);
+        setAuth(await postApi(user));
+
+        
+        
+
+
+
+
+
     }
+    useEffect(() => {
+       
+        if (auth) {
+            navigate('/demo');
+        }
+        console.log(auth)
+    }, [auth]); // Execute the effect whenever `auth` changes
 
-  
+
 
     return (
         <div className='container'>
@@ -35,7 +60,7 @@ function LoginForm() {
                     <input type="password" placeholder='  Password' ref={passRef} />
                     <LoginBtn />
                 </form>
-              
+
             </div>
 
         </div>
