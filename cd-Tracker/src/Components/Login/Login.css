@@ -5,9 +5,11 @@
 
 }
 
-img{
+.bgcontainer{
     height: 100vh;
     margin: 0px;
-    width: 50%;
-    padding-right: 64px;
+    width: 100%;
+    background-image: url(../../assets/loginimage.png);
+    background-size: cover;
+   
 }

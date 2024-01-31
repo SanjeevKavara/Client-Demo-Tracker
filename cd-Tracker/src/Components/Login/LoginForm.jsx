@@ -22,16 +22,15 @@ function LoginForm() {
             password: passRef.current?.value
         }
 
-        if(user.username == ""||user.password == "")
-        {
+        if (user.username == "" || user.password == "") {
             console.log("Please Enter valid credentials")
             return
         }
 
         setAuth(await postApi(user));
 
-        
-        
+
+
 
 
 
@@ -39,7 +38,7 @@ function LoginForm() {
 
     }
     useEffect(() => {
-       
+
         if (auth) {
             navigate('/demo');
         }
@@ -56,8 +55,8 @@ function LoginForm() {
                     <h3 className='head2'>Welcome back! Enter your credentials to login.</h3>
                 </div>
                 <form onSubmit={handleSubmit}>
-                    <input type="text" name="" id="" placeholder='  Username or Email' ref={userRef} />
-                    <input type="password" placeholder='  Password' ref={passRef} />
+                    <input type="text" name="" id="" placeholder='Username or Email' ref={userRef} />
+                    <input type="password" placeholder='Password' ref={passRef} />
                     <LoginBtn />
                 </form>
 

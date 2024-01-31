@@ -8,7 +8,8 @@ function Login() {
     return (
         <>
             <div className='flxbox'>
-                <img src={login} alt="" />
+                {/* <img src={login} alt="" /> */}
+                <div className='bgcontainer'></div>
                <LoginForm />
             </div>
 
