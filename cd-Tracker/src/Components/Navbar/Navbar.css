@@ -36,6 +36,9 @@
 
     .MuiToolbar-root {
         background-color: white;
+        background-image: url(../../assets/compName.png);
+        background-repeat: no-repeat;
+        background-position: 18px;
 
     }
 

@@ -16,14 +16,19 @@ import ListItem from '@mui/material/ListItem';
 import ListItemButton from '@mui/material/ListItemButton';
 import ListItemIcon from '@mui/material/ListItemIcon';
 import ListItemText from '@mui/material/ListItemText';
-import InboxIcon from '@mui/icons-material/MoveToInbox';
-import MailIcon from '@mui/icons-material/Mail';
-import AssignmentIcon from '@mui/icons-material/Assignment';
 import GridViewIcon from '@mui/icons-material/GridView';
 import PeopleAltIcon from '@mui/icons-material/PeopleAlt';
-import './Navbar.css'
+import PersonIcon from '@mui/icons-material/Person';
+import { Link, useNavigate } from 'react-router-dom';
+import './Navbar.css';
+import Frame from '../../assets/Frame.svg?react'
+
 
 const drawerWidth = 240;
+
+
+
+
 
 const openedMixin = (theme) => ({
   width: drawerWidth,
@@ -94,6 +99,17 @@ export default function MiniDrawer() {
   const theme = useTheme();
   const [open, setOpen] = React.useState(false);
 
+  const navigate = useNavigate();
+
+  const CallPage = () => {
+    navigate('/call')
+  }
+
+  const DemoPage = ()=>{
+    navigate('/demo')
+  }
+
+
   const handleDrawerOpen = () => {
     setOpen(true);
   };
@@ -139,8 +155,8 @@ export default function MiniDrawer() {
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
-                  borderRadius:2.5,
-                  m:1,
+                  borderRadius: 2.5,
+                  m: 1,
                 }}
               >
                 <ListItemIcon
@@ -148,10 +164,10 @@ export default function MiniDrawer() {
                     minWidth: 0,
                     mr: open ? 3 : 'auto',
                     justifyContent: 'center',
-                    color:'white'
+                    color: 'white'
                   }}
                 >
-                  {index  === 0 ? <GridViewIcon /> : index === 1 ? <PeopleAltIcon /> : <AssignmentIcon />}
+                  {index === 0 ? <GridViewIcon /> : index === 1 ? <PeopleAltIcon onClick={DemoPage} /> : <Frame onClick={CallPage}  />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
