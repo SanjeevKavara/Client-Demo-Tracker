@@ -18,7 +18,6 @@ const loginService = {
       if(!user){
         return null;
       }
-      console.log("user", user);
       if (password === user.password) {
        const token = await jwt.sign({userId: user._id}, process.env.JWT_SECRET_KEY, { expiresIn: '1h' });
 
@@ -26,7 +25,6 @@ const loginService = {
        'message':  'login successful',
        'token':token
      }
-
      const query = {
       email : email,
       token : token

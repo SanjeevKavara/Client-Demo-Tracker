@@ -22,7 +22,6 @@ const User = mongoose.model('user', userSchema, 'user');
 const findOneUser = async (query) => {
   try {
     const userData = await User.findOne(query);
-    console.log("userData:", userData);
     return userData;
   } catch (error) {
     console.error('Error finding user:', error);
