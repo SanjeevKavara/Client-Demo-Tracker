@@ -139,6 +139,8 @@ export default function MiniDrawer() {
                   minHeight: 48,
                   justifyContent: open ? 'initial' : 'center',
                   px: 2.5,
+                  borderRadius:2.5,
+                  m:1,
                 }}
               >
                 <ListItemIcon

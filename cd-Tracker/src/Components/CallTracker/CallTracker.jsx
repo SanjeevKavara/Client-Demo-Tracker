@@ -4,7 +4,7 @@ import './CallTracker.css'
 function CallTracker() {
   return (
     <div className='container1'>
-      Demo Tracker
+      Call Tracker
     </div>
   )
 }

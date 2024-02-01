@@ -1,6 +1,7 @@
 .MuiDrawer-root {
     .MuiPaper-root {
         background-color: #082760;
+        ;
     }
 }
 
@@ -17,6 +18,16 @@
         display: none;
     }
 
+}
+
+.MuiListItem-root{
+    .MuiButtonBase-root:active{
+        background-color: #0F3884;
+    }
+
+    .MuiButtonBase-root:hover{
+        background-color: #0F3884;
+    }
 }
 
 
