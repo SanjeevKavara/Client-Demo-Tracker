@@ -109,6 +109,10 @@ export default function MiniDrawer() {
     navigate('/demo')
   }
 
+  const DashPage = ()=>{
+    navigate('/dashboard')
+  }
+
 
   const handleDrawerOpen = () => {
     setOpen(true);
@@ -167,7 +171,7 @@ export default function MiniDrawer() {
                     color: 'white'
                   }}
                 >
-                  {index === 0 ? <GridViewIcon /> : index === 1 ? <PeopleAltIcon onClick={DemoPage} /> : <Frame onClick={CallPage}  />}
+                  {index === 0 ? <GridViewIcon onClick = {DashPage} /> : index === 1 ? <PeopleAltIcon onClick={DemoPage} /> : <Frame onClick={CallPage}  />}
                 </ListItemIcon>
                 <ListItemText primary={text} sx={{ opacity: open ? 1 : 0 }} />
               </ListItemButton>
