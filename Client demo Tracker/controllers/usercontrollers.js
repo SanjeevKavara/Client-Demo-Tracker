@@ -12,7 +12,6 @@
           email,
           password,
         };
-        console.log("userData", userData);
         await loginService.signinService(userData).then((data) => {
           if(data) {
             res.status(200).send(data)

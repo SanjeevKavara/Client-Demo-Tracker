@@ -30,11 +30,11 @@ const authTokenSchema = new mongoose.Schema({
         default:'SYSTEM'
     }
   // Add other fields as needed
-  });
+});
   
-  const authToken = mongoose.model('authguard', authTokenSchema, 'authguard');
+const authToken = mongoose.model('authguard', authTokenSchema, 'authguard');
 
-  async function findOneAndUpdate(query) {
+async function findOneAndUpdate(query) {
     try {
       const AuthToken = authToken.findOneAndUpdate(
         { email: query?.email },
@@ -43,10 +43,9 @@ const authTokenSchema = new mongoose.Schema({
       );
        return AuthToken;
     } catch (error) {
-      console.error('Error finding user:', error);
-      throw error; 
+      
     }
-  };
+};
   
 
-  module.exports = {authToken,findOneAndUpdate};
+module.exports = {authToken,findOneAndUpdate};

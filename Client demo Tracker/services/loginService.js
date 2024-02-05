@@ -30,7 +30,6 @@ const loginService = {
       token : token
      }
     
-     console.log("email", query);
      const authTokenRecord =await AuthToken.findOneAndUpdate(query);
       return (authTokenRecord);
       } 
