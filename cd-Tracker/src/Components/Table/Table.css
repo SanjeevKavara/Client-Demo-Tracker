@@ -1,0 +1,29 @@
+.MuiDataGrid-root{
+  
+        margin-left: 80px;
+        margin-right: 15px;
+        background-color: #fff;
+        
+    }
+
+
+   .MuiDataGrid-columnHeadersInner{
+    padding-left: 22px;
+    background-color: #D7DBE0;
+
+   }
+
+   .MuiDataGrid-columnSeparator{
+    .MuiSvgIcon-root{
+        display: none;
+        
+    }
+   }
+
+   
+
+   .MuiTablePagination-root
+   {
+    display: none;
+   }
+

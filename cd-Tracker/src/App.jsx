@@ -5,6 +5,7 @@ import { Route, Routes, useLocation } from 'react-router-dom'
 import Demotracker from './Components/DemoTracker/DemoTracker'
 import MiniDrawer from './Components/Navbar/Navbar'
 import CallTracker from './Components/CallTracker/CallTracker'
+import Dashboard from './Components/Dashboard/Dashboard'
 
 function App() {
   const [count, setCount] = useState(0)
@@ -21,6 +22,7 @@ function App() {
         <Route path='/login' element={<Login />} />
         <Route path='/demo' element={<Demotracker />} />
         <Route path='/call' element={<CallTracker />} />
+        <Route path='/dashboard' element={<Dashboard />} />
 
       </Routes>
     </>
