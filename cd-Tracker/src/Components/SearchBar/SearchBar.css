@@ -1,0 +1,30 @@
+
+.searchbar
+{
+    height: 38px;
+    width: 350px;
+    border-radius: 27px;
+    margin-left: 670px;
+}
+
+.searchbar_container {
+    display: flex;
+    align-items: center;
+}
+
+.searchbar_container {
+
+        .MuiSvgIcon-root {
+            position: relative;
+            right: 45px;
+        }
+
+}   
+
+.demo_detail
+{
+        background-color: #082760;
+        height: 35px;
+        width: 195px;
+        margin-left: 25px;
+}

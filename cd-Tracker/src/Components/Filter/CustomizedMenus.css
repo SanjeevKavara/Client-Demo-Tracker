@@ -1,0 +1,20 @@
+.filter_container
+{
+    .MuiButtonBase-root
+    {
+        .MuiButton-endIcon{
+            .MuiSvgIcon-root{
+                position: relative;
+                left: 0;
+            }
+           
+        }
+        
+    }
+   
+}
+
+.filter_container
+{
+    color: black;
+}
