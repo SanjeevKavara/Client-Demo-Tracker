@@ -28,8 +28,7 @@ const demotrackerschema = new mongoose.Schema({
     },
     MeetingType:{
         type: String,
-        enum : ['Virtual', 'F2F'],
-        default : 'Virtual'
+        enum : ['Virtual', 'F2F']
     },
     DemoStatus :{
         type:String,
@@ -67,4 +66,44 @@ async function findoneandUpdate(query){
     }
 }
 
-module.exports = {DemoTracker,findAll,findoneandUpdate};
+async function Createdemo(query){
+    try {
+        const check = await DemoTracker.findOne({
+            $or:[{Email : query.Email},
+                {ContactNumber : query.ContactNumber}
+            ]
+        })
+        if(check){
+            return("User Already exixts");
+        }
+        else{
+            await DemoTracker.create(
+                {
+                    ClientName : query.ClientName,
+                    ContactPerson : query.ContactPerson,
+                    Email : query.Email,
+                    ContactNumber : query.ContactNumber,
+                    Location : query.Location,
+                    DemoDate : query.DemoDate,
+                    MeetingType : query.MeetingType,
+                    DemoStatus : "Yet to Present" ,
+                    Status : "Active"
+                }
+            )
+            return ("Created Successfully");
+        }
+    } catch (error) {
+        throw error
+    }
+}
+
+async function viewonedemo(req){
+    try {
+        const detail = DemoTracker.findById({_id : req?.id})
+        return detail;  
+    } catch (error) {
+        throw error; 
+    }
+}
+
+module.exports = {DemoTracker,findAll,findoneandUpdate,Createdemo,viewonedemo};

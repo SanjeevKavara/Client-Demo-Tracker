@@ -11,9 +11,17 @@ const userController = UserController;
  * Signin and Signout
  */
 router.post('/signin', userController.loginUser );
-router.post('/Clientdemotracker',demoTrackercontroller.demodetails)
-router.post('/Clientdemotracker/:id',demoTrackercontroller.deomdelete)
+
+/**
+ * Demo Tracker Page
+ */
+router.post('/Clientdemotracker',demoTrackercontroller.demodetails);
+router.post('/clientdemotracker/create', demoTrackercontroller.demoCreate);
+router.post('/Clientdemotracker/:id',demoTrackercontroller.deomdelete);
+router.post('/Clientdemotracker/view/:id',demoTrackercontroller.viewonedetail);
+
 
 module.exports = router;
+
 
 
