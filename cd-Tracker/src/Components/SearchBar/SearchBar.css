@@ -4,12 +4,14 @@
     height: 38px;
     width: 350px;
     border-radius: 27px;
-    margin-left: 670px;
+   
 }
 
 .searchbar_container {
     display: flex;
     align-items: center;
+    width: 90%;
+    justify-content: end;
 }
 
 .searchbar_container {

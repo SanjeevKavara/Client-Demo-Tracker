@@ -48,6 +48,20 @@
     }
 }
 
+
+.MuiDataGrid-columnHeaderDraggableContainer {
+    .MuiDataGrid-columnHeaderTitleContainer {
+        margin-left: 20px;
+    }
+}
+
+.MuiDataGrid-virtualScroller{
+    .MuiDataGrid-cellContent{
+        margin-left: 20px;
+    }
+}
+
+
 /* .MuiSvgIcon-root
 {
     .MuiTouchRipple-root
@@ -66,4 +80,3 @@
         display: none;
     }
 }
-

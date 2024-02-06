@@ -5,26 +5,31 @@ import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useNavigate } from 'react-router-dom';
 import './PositionedMenu.css'
+import { useState } from 'react';
 
 export default function PositionedMenu() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
+  const [content, setContent] = useState('Demo Details')
   const open = Boolean(anchorEl);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
   const handleClose = () => {
-   
-  setAnchorEl(null);
-    
+
+    setAnchorEl(null);
+
   };
 
-  const handleDemo=()=>{
+  const handleDemo = () => {
+
     navigate('/demo')
   }
 
-  const handleCall=()=>{
+  const handleCall = () => {
+
     navigate('/call')
+    setContent('Call Tracker Details')
   }
 
   return (
@@ -36,8 +41,8 @@ export default function PositionedMenu() {
         aria-expanded={open ? 'true' : undefined}
         onClick={handleClick}
       >
-        Dashboard
-        <ExpandMoreIcon/>
+        {content}
+        <ExpandMoreIcon />
       </Button>
       <Menu
         id="demo-positioned-menu"
