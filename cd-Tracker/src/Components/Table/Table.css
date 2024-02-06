@@ -1,29 +1,82 @@
-.MuiDataGrid-root{
-  
-        margin-left: 80px;
-        margin-right: 15px;
-        background-color: #fff;
-        
-    }
+.MuiDataGrid-root {
+
+    margin-left: 80px;
+    margin-right: 15px;
+    background-color: #fff;
+
+}
 
 
-   .MuiDataGrid-columnHeadersInner{
-    padding-left: 22px;
+.MuiDataGrid-columnHeadersInner {
     background-color: #D7DBE0;
 
-   }
+}
 
-   .MuiDataGrid-columnSeparator{
-    .MuiSvgIcon-root{
+.MuiDataGrid-columnSeparator {
+    .MuiSvgIcon-root {
         display: none;
-        
+
     }
-   }
+}
 
-   
 
-   .MuiTablePagination-root
-   {
+
+.MuiTablePagination-root {
     display: none;
-   }
+}
 
+.MuiDataGrid-columnHeaders {
+    display: contents;
+    justify-content: flex-start;
+}
+
+.MuiDataGrid-iconButtonContainer {
+    .MuiButtonBase-root {
+        .MuiSvgIcon-root {
+            display: none;
+        }
+    }
+}
+
+.MuiDataGrid-menuIcon {
+    .MuiDataGrid-menuIcon {
+        .MuiSvgIcon-root {
+            .MuiTouchRipple-root {
+                display: none;
+            }
+        }
+    }
+}
+
+
+.MuiDataGrid-columnHeaderDraggableContainer {
+    .MuiDataGrid-columnHeaderTitleContainer {
+        margin-left: 20px;
+    }
+}
+
+.MuiDataGrid-virtualScroller{
+    .MuiDataGrid-cellContent{
+        margin-left: 20px;
+    }
+}
+
+
+/* .MuiSvgIcon-root
+{
+    .MuiTouchRipple-root
+    {
+        display: none;
+    }
+}
+
+.MuiSvgIcon-root{
+    display: none;
+} */
+
+
+.MuiDataGrid-menuIcon {
+    .MuiButtonBase-root {
+        display: none;
+    }
+}

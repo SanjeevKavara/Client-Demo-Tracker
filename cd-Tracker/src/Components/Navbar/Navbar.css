@@ -20,12 +20,12 @@
 
 }
 
-.MuiListItem-root{
-    .MuiButtonBase-root:active{
+.MuiListItem-root {
+    .MuiButtonBase-root:active {
         background-color: #0F3884;
     }
 
-    .MuiButtonBase-root:hover{
+    .MuiButtonBase-root:hover {
         background-color: #0F3884;
     }
 }
@@ -48,4 +48,25 @@
     .MuiButtonBase-root {
         display: none;
     }
+}
+
+
+.MuiDataGrid-root {
+    .MuiDataGrid-footerContainer {
+        display: none;
+        min-height: 0;
+        border-top: 0;
+    }
+}
+
+.MuiDataGrid-virtualScroller
+{
+    overflow-y: hidden;
+}
+
+.MuiDataGrid-main {
+    display: none;
+    min-height: 0;
+    border-top: 0;
+    align-items: unset;
 }
