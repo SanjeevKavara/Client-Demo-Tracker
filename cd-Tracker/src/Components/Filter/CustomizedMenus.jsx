@@ -89,7 +89,6 @@ export default function CustomizedMenus() {
          
           Date-Older
         </MenuItem>
-        <Divider sx={{ my: 0.5 }} />
         <MenuItem onClick={handleClose} disableRipple>
          
           Meeting type- Virtual

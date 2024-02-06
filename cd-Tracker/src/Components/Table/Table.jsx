@@ -2,6 +2,7 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './Table.css'
 import PositionedMenu from '../PositionedMenu/PositionedMenu';
+import MenuItem from '@mui/material/MenuItem';
 
 const columns = [
     { field: 'ClientName', headerName: 'Client Name', width: 200 },

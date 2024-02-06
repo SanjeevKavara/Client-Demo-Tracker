@@ -14,7 +14,19 @@
    
 }
 
-.filter_container
+
+
+.filter_container{
+.MuiButtonBase-root
 {
     color: black;
+}
+}
+
+.category_dropdown
+{
+    .MuiButtonBase-root
+    {
+        color: black;
+    }
 }

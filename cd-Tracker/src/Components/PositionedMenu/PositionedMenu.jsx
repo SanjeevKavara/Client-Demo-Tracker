@@ -15,7 +15,7 @@ export default function PositionedMenu() {
   };
   const handleClose = () => {
    
-  
+  setAnchorEl(null);
     
   };
 
