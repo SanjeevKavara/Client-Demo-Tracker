@@ -2,18 +2,19 @@ import * as React from 'react';
 import { DataGrid } from '@mui/x-data-grid';
 import './Table.css'
 import PositionedMenu from '../PositionedMenu/PositionedMenu';
-import filter_icon from '../../assets/filter_icon.svg?react'
+import Filter_icon from '../../assets/filter_icon.svg?react'
 import Select from '@mui/material/Select';
 import InputLabel from '@mui/material/InputLabel';
 import MenuItem from '@mui/material/MenuItem';
 import KeyboardArrowDownIcon from '@mui/icons-material/KeyboardArrowDown';
+import Button from '@mui/material/Button';
 
 
 
 export default function DataTable() {
 
   const [rows, setRows] = React.useState([
-    { id: 1, ClientName: 'Goblin Family', ContactPerson: 'PM', ContactNumber: "9464556", Email: 'goblinfamily@gmail.com', DemoDate: "1334566", Location: 'cbe', MeetingType: 'F2F', key: "1" },
+    { id: 1, ClientName: 'Goblin Family', ContactPerson: 'PM', ContactNumber: "9464556", Email: 'goblinfamily@gmail.com', DemoDate: "1334566", Location: 'cbe', MeetingType: 'F2F' , key: "1" },
     { id: 2, ClientName: 'Aaludrites', ContactPerson: 'Pm', ContactNumber: "2131331212332132", Email: 'goblinfamily@gmail.com', DemoDate: "133455566", Location: 'Cbe', MeetingType: 'F2F', key: "2" },
     { id: 3, ClientName: 'ganesan', ContactPerson: 'PM', ContactNumber: "32332", Email: 'aaludrites@gmail.com', DemoDate: "13343235566", Location: 'dindigul', MeetingType: "F2F", key: "3" },
     { id: 4, ClientName: 'Goblin Family', ContactPerson: 'Hr', ContactNumber: "3223131132", Email: 'goblinfamily@gmail.com', DemoDate: "133432sads35566", Location: 'Cbe', MeetingType: 'F2F', key: "4" },
@@ -30,59 +31,84 @@ export default function DataTable() {
 
   const selectionChangeHandler = (event, rowIndex) => {
     const updatedRows = [...rows];
+   
     console.log("updatedRows", updatedRows);
     console.log("rowIndex", rowIndex);
-    if(updatedRows[rowIndex]) { // Check if the row exists
+    if (updatedRows[rowIndex]) { // Check if the row exists
       updatedRows[rowIndex].MeetingType = event.target.value;
       setRows(updatedRows);
+      
     }
   };
-
+  
   const meetingTypes = ['F2F', 'Virtual'];
+
+
+
   const columns = [
-    { field: 'ClientName', headerName: 'Client Name', width: 200, sortable: true },
-    { field: 'ContactPerson', headerName: 'Contact Person', width: 200, sortable: true },
-    { field: 'Email', headerName: 'Email', width: 300, sortable: true },
-    { field: 'DemoDate', headerName: 'Demo Date', width: 200, sortable: true },
-    { field: 'ContactNumber', headerName: 'Contact Number', width: 200, sortable: true },
-    { field: 'Location', headerName: 'Location', width: 150, sortable: true },
+    
+    { field: 'ClientName', headerName: 'Client Name',width: 200,  sortable: true },
+    { field: 'ContactPerson', headerName: 'Contact Person',width: 200,  sortable: true },
+    { field: 'Email', headerName: 'Email',width: 200,  sortable: true },
+    { field: 'DemoDate', headerName: 'Demo Date',width: 150, sortable: true },
+    { field: 'ContactNumber', headerName: 'Contact Number', width: 150, sortable: true },
+    { field: 'Location', headerName: 'Location',width: 150, sortable: true },
+    
     {
       field: 'MeetingType',
       headerName: 'Meeting Type',
-      width: 230,
+      width: 150,
       sortable: true,
+      headerRender: (props) => (
+        <div style={{ display: 'flex', alignItems: 'center' }}>
+          {/* You can replace the icon with your own icon component */}
+          <img src={Filter_icon} alt="Filter Icon" style={{ marginRight: '4px' }} />
+          <span>{props.colDef.headerName}</span>
+        </div>
+      ),
       renderCell: (params) => (
-        
+
         <Select
-        
+
           value={params.row.MeetingType || ''}
-          
+
           onChange={(event) => {
             console.log("params", params);
-           
+
             selectionChangeHandler(event, (Number(params.id) - 1))
           }}
-          
-        >
-          <KeyboardArrowDownIcon/>
+
+        > 
        
-          <InputLabel id="meeting-type-label"
-          > </InputLabel>
+          {/* <KeyboardArrowDownIcon/> 
+          <InputLabel id="meeting-type-label" 
+          > </InputLabel> */}
           
+          <Button
+            id="meeting-type-label" 
+          >
+           F2F 
+          </Button>
+         
+
           {meetingTypes.map((type) => (
-             
+
             <MenuItem key={type} value={type}>
-              
+
               {type}
             </MenuItem>
           ))}
         </Select>
       ),
     },
+    {field: 'Actions', headerName: 'Actions',width: 100,sortabletrue: true}
   ];
+  
+  
+
 
   return (
-    <div style={{ height: '73.5vh', width: '100%', overflowX: 'hidden'}} >
+    <div style={{ height: '73.5vh', overflowX: 'hidden'}} >
       
       <PositionedMenu />
       <DataGrid
@@ -91,6 +117,7 @@ export default function DataTable() {
         getRowId={(row) => row.id}
       // onEditCellChange={handleEditCellChange}
       />
+
     </div>
   );
 }
