@@ -82,7 +82,7 @@ export default function DataTable() {
   ];
 
   return (
-    <div style={{ height: '80vh', width: '100%', overflowX: 'hidden' }} >
+    <div style={{ height: '73.5vh', width: '100%', overflowX: 'hidden'}} >
       
       <PositionedMenu />
       <DataGrid

@@ -4,5 +4,10 @@
     height: 100vh;
     justify-content: flex-start;
     padding-top: 90px;
+   
+}
+
+
+.container>div:nth-child(2){
     overflow-y: hidden;
 }

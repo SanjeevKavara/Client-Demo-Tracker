@@ -95,3 +95,10 @@
         border: none;
     }
 }
+
+
+.MuiDataGrid-main{
+    .MuiDataGrid-virtualScroller{
+        overflow: hidden;
+    }
+}
