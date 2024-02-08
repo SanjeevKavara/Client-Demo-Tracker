@@ -80,3 +80,18 @@
         display: none;
     }
 }
+
+.MuiDataGrid-cell--withRenderer
+{
+    .MuiSvgIcon-root
+    {
+        display: none;
+    }
+}
+
+.MuiInputBase-root
+{
+    .MuiOutlinedInput-notchedOutline {
+        border: none;
+    }
+}
