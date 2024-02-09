@@ -3,7 +3,6 @@ const { ObjectId } = require("mongodb");
 const userModel = require("../models/usermodels");
 const jwt =require('jsonwebtoken');
 const AuthToken = require('../models/Authguard');
-// const findOneAndUpdate = require('../models/Authguard');
 
 require('dotenv').config();
 

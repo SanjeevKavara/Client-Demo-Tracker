@@ -4,11 +4,16 @@ const demotrackerservices = require("../services/demotrackerService");
 const demoTrackercontroller ={
     async demodetails(req,res){
         try{
-          await demotrackerservices.viewdemoTracker(req).then((data) => {
+          const {limit, offset} = req.query;
+          if(limit == undefined || offset == undefined ){
+            res.status(400).send("Bad Request");
+            return
+          }
+          await demotrackerservices.viewdemoTracker(req, limit, offset).then((data) => {
               if(data) {
                 res.status(200).send(data);
               }else{
-                res.status(400).send("Unexpected error")
+                res.status(400).send("Unexpected error");
             }
           });     
         }
@@ -68,6 +73,52 @@ const demoTrackercontroller ={
           }else{
             res.status(400).send("Unexpected error")
         }
+        });
+      } catch (error) {
+        res.status(400).send("Unexpected error occured");
+      }
+    },
+    async editonedetail(req,res){
+      try {
+        let {id,ClientName,ContactPerson,Email,ContactNumber,Location,DemoDate,MeetingType,DemoStatus} = req.body
+        const query = {
+          id,
+          ClientName, 
+          ContactPerson,
+          Email,
+          ContactNumber,
+          Location,
+          DemoDate,
+          MeetingType,
+          DemoStatus
+        }
+        await demotrackerservices.editonedemoTracker(query).then((data) => {
+          if(data) {
+            res.status(200).send(data);
+          }else{
+            res.status(400).send("Unexpected error")
+          }
+        });
+      } catch (error) {
+        res.status(400).send("Unexpected error occured");
+      }
+      
+    },
+    async filterdata(req,res){
+      let {DemoDate, Location, MeetingType, DemoStatus} = req.body;
+      const query = {
+        DemoDate, 
+        Location, 
+        MeetingType, 
+        DemoStatus
+      }
+      try {
+        await demotrackerservices.filterdetails(query).then((data) => {
+          if(data){
+            res.status(200).send(data);
+          }else{
+            res.status(400).send("Unexpected error")
+          }
         });
       } catch (error) {
         res.status(400).send("Unexpected error occured");

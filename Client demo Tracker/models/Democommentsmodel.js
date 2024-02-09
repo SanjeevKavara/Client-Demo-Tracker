@@ -21,7 +21,7 @@ async function viewDemoComments(req){
         const comments = await DemoTrackerComments.findOne(
             {Demo_tracker_primaryid : req.id}
         )
-        return comments;
+        return (comments);
     } catch (error) {
         return error;
     }
