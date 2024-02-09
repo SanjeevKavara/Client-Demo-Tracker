@@ -6,6 +6,7 @@ import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import './AddData.css'
 import AddIcon from '@mui/icons-material/Add';
+import Vector from '../../assets/Vector.svg?react'
 import FormContentData from './FormContentData';
 
 
@@ -24,64 +25,17 @@ export default function TemporaryDrawer() {
 
     const form = (
         <Box
-            sx={{ width: '500px', padding: '16px' }}
+            sx={{ width: '604px', padding: '16px', borderRadius: '8px 0px 0px 8px' }}
             role="presentation"
             onClick={(event) => event.stopPropagation()} // Prevent closing the sidebar when clicking inside the form
-            // onKeyDown={toggleDrawer('right', false)}
+        // onKeyDown={toggleDrawer('right', false)}
         >
             <Typography variant="h6">Add Demo Detail</Typography>
             <h2>Add Client Details</h2>
-            {/* <label htmlFor="">Client Name</label> */}
-            {/* <TextField
-                required
-                label="Client Name"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                label="Contact Person"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                required
-                label="Contact Number"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                required
-                label="Email ID"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                label="Location"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                label="Demo Date"
-                type="date"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            />
-            <TextField
-                label="Meeting Type"
-                variant="outlined"
-                fullWidth
-                margin="normal"
-            /> */}
             <FormContentData />
-            <Button variant="contained" color="primary" fullWidth>
+            {/* <Button variant="contained" color="primary" fullWidth>
                 Submit
-            </Button>
+            </Button> */}
         </Box>
     );
 

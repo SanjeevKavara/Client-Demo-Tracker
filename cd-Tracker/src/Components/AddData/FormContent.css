@@ -1,0 +1,46 @@
+.inputfields>input {
+    width: 519px;
+    height: 40px;
+    border-radius: 8px;
+    border-color: #D7CBE0;
+    border-style: solid;
+}
+
+
+.inputfields>select{
+    width: 519px;
+    height: 40px;
+    border-radius: 8px;
+    border-color: #D7CBE0;
+    border-style: solid;
+}
+
+/* .options{
+    width: 530px;
+    height: 40px;
+} */
+
+
+.custom-select { 
+    height: 40px !important; /* Adjust the height as needed */
+    width: 530px;
+  }
+
+.formContent {
+    gap: 22px;
+    padding: 10px;
+    top: 61px;
+    left: 25px;
+    position: absolute;
+}
+
+
+.formContent{
+    .MuiButton-sizeMedium{
+        width: 167px;
+        padding: 10px 40px 10px 40px;
+        text-transform: capitalize;
+    }
+}
+
+

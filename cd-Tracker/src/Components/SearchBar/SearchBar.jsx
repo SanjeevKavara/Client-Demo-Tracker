@@ -7,16 +7,16 @@ import TemporaryDrawer from '../addData/Adddata';
 function SearchBar() {
   return (
     <>
-    <div className='searchbar_container'>
-    <input className='searchbar'/>
-    <SearchIcon/>
-    <CustomizedMenus/>
-    {/* <button className='demo_detail'>Add Demo Detail</button> */}
-    <TemporaryDrawer />
-    </div>
+      <div className='searchbar_container'>
+        <input className='searchbar' />
+        <SearchIcon />
+        <CustomizedMenus />
+        {/* <button className='demo_detail'>Add Demo Detail</button> */}
+        <TemporaryDrawer />
+      </div>
 
     </>
-    
+
   )
 }
 
