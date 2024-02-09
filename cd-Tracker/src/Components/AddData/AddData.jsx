@@ -6,6 +6,8 @@ import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
 import './AddData.css'
 import AddIcon from '@mui/icons-material/Add';
+import FormContentData from './FormContentData';
+
 
 export default function TemporaryDrawer() {
     const [state, setState] = React.useState({
@@ -24,48 +26,44 @@ export default function TemporaryDrawer() {
         <Box
             sx={{ width: '500px', padding: '16px' }}
             role="presentation"
-            onClick={toggleDrawer('right', false)}
-            onKeyDown={toggleDrawer('right', false)}
+            onClick={(event) => event.stopPropagation()} // Prevent closing the sidebar when clicking inside the form
+            // onKeyDown={toggleDrawer('right', false)}
         >
             <Typography variant="h6">Add Demo Detail</Typography>
-            <h1>Add Client Details</h1>
-            <TextField
-            required
+            <h2>Add Client Details</h2>
+            {/* <label htmlFor="">Client Name</label> */}
+            {/* <TextField
+                required
                 label="Client Name"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
                 label="Contact Person"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
-            required
+                required
                 label="Contact Number"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
-            required
+                required
                 label="Email ID"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
                 label="Location"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
                 label="Demo Date"
@@ -73,15 +71,14 @@ export default function TemporaryDrawer() {
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
             />
             <TextField
                 label="Meeting Type"
                 variant="outlined"
                 fullWidth
                 margin="normal"
-                onClick={(event) => event.stopPropagation()}
-            />
+            /> */}
+            <FormContentData />
             <Button variant="contained" color="primary" fullWidth>
                 Submit
             </Button>

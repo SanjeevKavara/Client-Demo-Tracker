@@ -50,9 +50,9 @@ export default function DataTable() {
     { field: 'ClientName', headerName: 'Client Name',width: 200,  sortable: true },
     { field: 'ContactPerson', headerName: 'Contact Person',width: 200,  sortable: true },
     { field: 'Email', headerName: 'Email',width: 200,  sortable: true },
-    { field: 'DemoDate', headerName: 'Demo Date',width: 150, sortable: true },
-    { field: 'ContactNumber', headerName: 'Contact Number', width: 150, sortable: true },
-    { field: 'Location', headerName: 'Location',width: 150, sortable: true },
+    { field: 'DemoDate', headerName: 'Demo Date',width: 200, sortable: true },
+    { field: 'ContactNumber', headerName: 'Contact Number',width: 200, sortable: true },
+    { field: 'Location', headerName: 'Location',width: 200, sortable: true },
     
     {
       field: 'MeetingType',
@@ -101,14 +101,14 @@ export default function DataTable() {
         </Select>
       ),
     },
-    {field: 'Actions', headerName: 'Actions',width: 100,sortabletrue: true}
+    {field: 'Actions', headerName: 'Actions', width: 200,sortabletrue: true}
   ];
   
   
 
 
   return (
-    <div style={{ height: '73.5vh', overflowX: 'hidden'}} >
+    <div style={{ height: '73.5vh'}} >
       
       <PositionedMenu />
       <DataGrid

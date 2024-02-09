@@ -11,10 +11,13 @@ function DemoTracker() {
   return (
     <>
     <div className='container'>
-    <SearchBar/>
+      <div className='sub_container'>
+      <SearchBar/>
     
     <DataTable />
-    <BasicPagination/>
+
+      </div>
+      <BasicPagination/>
   
     </div>
     </>
