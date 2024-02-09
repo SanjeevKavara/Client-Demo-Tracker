@@ -1,0 +1,24 @@
+#addBtn {
+    background-color: #082760;
+    color: white;
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    border-radius: 8px;
+    text-transform: capitalize;
+    padding: 10px;
+    width: 14rem;
+}
+
+.MuiButtonBase-root {
+    .MuiSvgIcon-root {
+        right: 14px;
+    }
+}
+
+
+.MuiDrawer-root{
+    .MuiPaper-elevation16{
+        background-color: white;
+    }
+}

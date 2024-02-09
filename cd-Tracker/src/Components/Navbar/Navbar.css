@@ -1,5 +1,5 @@
 .MuiDrawer-root {
-    .MuiPaper-root {
+    .MuiPaper-elevation0 {
         background-color: #082760;
         ;
     }
@@ -8,6 +8,7 @@
 .MuiBox-root {
     .MuiPaper-root {
         box-shadow: none;
+        z-index: 1;
     }
 
     .css-zxdg2z {
@@ -16,6 +17,10 @@
 
     .MuiTypography-root {
         display: none;
+    }
+
+    .MuiDrawer-paperAnchorLeft{
+        z-index: 0;
     }
 
 }
@@ -70,3 +75,4 @@
     border-top: 0;
     align-items: unset;
 }
+

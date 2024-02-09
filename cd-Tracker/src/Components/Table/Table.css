@@ -80,3 +80,25 @@
         display: none;
     }
 }
+
+.MuiDataGrid-cell--withRenderer
+{
+    .MuiSvgIcon-root
+    {
+        display: none;
+    }
+}
+
+.MuiInputBase-root
+{
+    .MuiOutlinedInput-notchedOutline {
+        border: none;
+    }
+}
+
+
+/* .MuiDataGrid-main{
+    .MuiDataGrid-virtualScroller{
+        overflow: hidden;
+    }
+} */
