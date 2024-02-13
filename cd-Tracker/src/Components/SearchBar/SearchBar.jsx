@@ -10,9 +10,10 @@ function SearchBar() {
       <div className='searchbar_container'>
         <input className='searchbar' />
         <SearchIcon />
+        <div className='filterclient'>
         <CustomizedMenus />
-        {/* <button className='demo_detail'>Add Demo Detail</button> */}
         <TemporaryDrawer />
+        </div>
       </div>
 
     </>

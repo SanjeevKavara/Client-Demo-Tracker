@@ -3,11 +3,11 @@
     color: white;
     font-weight: 500;
     font-size: 17px;
-    line-height: 24px;
     border-radius: 8px;
     text-transform: capitalize;
     padding: 10px;
     width: 14rem;
+    height: 36px;
 }
 
 .MuiButtonBase-root {
@@ -25,4 +25,9 @@
 
 .MuiDrawer-paperAnchorRight{
     border-radius: 8px 0px 0px 8px;
+}
+
+.flexDiv{
+    display: flex;
+    justify-content: space-between;
 }

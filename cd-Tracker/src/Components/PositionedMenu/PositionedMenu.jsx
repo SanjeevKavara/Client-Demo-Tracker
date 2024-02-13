@@ -5,13 +5,14 @@ import MenuItem from '@mui/material/MenuItem';
 import ExpandMoreIcon from '@mui/icons-material/ExpandMore';
 import { useNavigate } from 'react-router-dom';
 import './PositionedMenu.css'
-import { useState } from 'react';
+import { useState, useEffect } from 'react';
 
 export default function PositionedMenu() {
   const navigate = useNavigate();
   const [anchorEl, setAnchorEl] = React.useState(null);
-  const [content, setContent] = useState('Demo Details')
+  const [content, setContent] = useState('Demo Tracker Details')
   const open = Boolean(anchorEl);
+  const [menuKey, setMenuKey] = useState(0);
   const handleClick = (event) => {
     setAnchorEl(event.currentTarget);
   };
@@ -22,16 +23,16 @@ export default function PositionedMenu() {
   };
 
   const handleDemo = () => {
-
-    navigate('/demo')
+    navigate('/demo');
+    setContent('Demo Tracker Details')
   }
 
   const handleCall = () => {
-
-    navigate('/call')
-    setContent('Call Tracker Details')
+    navigate('/call');
+    setContent(() => 'Call Tracker Details');
   }
 
+  
   return (
     <div className="category_dropdown">
       <Button
@@ -45,6 +46,7 @@ export default function PositionedMenu() {
         <ExpandMoreIcon />
       </Button>
       <Menu
+        key={menuKey}
         id="demo-positioned-menu"
         aria-labelledby="demo-positioned-button"
         anchorEl={anchorEl}
@@ -59,7 +61,7 @@ export default function PositionedMenu() {
           horizontal: 'left',
         }}
       >
-        <MenuItem onClick={handleDemo}>Demo Details</MenuItem>
+        <MenuItem onClick={handleDemo}>Demo Tracker Details</MenuItem>
         <MenuItem onClick={handleCall}>Call Tracker Details</MenuItem>
 
       </Menu>

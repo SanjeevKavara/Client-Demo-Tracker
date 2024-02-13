@@ -1,0 +1,65 @@
+.inputfields input,
+.inputfields select {
+    width: 519px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #D7CBE0;
+}
+
+.formContent {
+    gap: 22px;
+    padding: 10px;
+    top: 61px;
+    left: 25px;
+    position: absolute;
+}
+
+.formContent .MuiButton-sizeMedium {
+    width: 167px;
+    padding: 10px 40px;
+    text-transform: capitalize;
+}
+
+.dropdown {
+    position: relative;
+    display: inline-block;
+    width: 530px;
+    height: 40px;
+    border-radius: 8px;
+    border: 1px solid #D7CBE0;
+}
+
+.dropdown-contentClose,
+.dropdown-contentOpen {
+    display: none;
+    position: absolute;
+    background-color: #f9f9f9;
+    width: 100%;
+    box-shadow: 0px 8px 16px 0px rgba(0, 0, 0, 0.2);
+    z-index: 1;
+}
+
+.dropdown-contentOpen {
+    display: block;
+}
+
+.optionss {
+    margin: 8px 16px;
+}
+
+.btnflex{
+    display: flex;
+    gap: 10px;
+   
+}
+
+.createBtn{
+    width: 167px;
+    height: 36px;
+    padding: 10px 40px 10px 40px;
+    border-radius: 8px;
+}
+
+.MuiDrawer-paperAnchorRight{
+    overflow-x: hidden;
+}

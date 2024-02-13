@@ -3,15 +3,21 @@ import './CallTracker.css'
 import DataTable from '../Table/Table'
 import BasicPagination from '../Pagination/Pagination'
 import DropDown from './DropDown'
+import SearchBar from '../SearchBar/SearchBar'
 
 
 function CallTracker() {
   return (
     <>
-    <div className='container  container_call'>
+    <div className='containerCall'>
+      <div className='sub_containerCall'>
+      <SearchBar/>
     
     <DataTable />
-    <BasicPagination/>
+
+      </div>
+      <BasicPagination/>
+  
     </div>
     </>
   )

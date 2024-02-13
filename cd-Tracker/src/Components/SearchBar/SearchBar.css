@@ -4,15 +4,23 @@
     height: 38px;
     width: 350px;
     border-radius: 27px;
-   
+    border: solid;
+    border-color: #D7DBE0;
+    border-width: 1px;
+    padding: 10px;
+    
+}
+
+.searchbar:focus{
+   outline: none;
 }
 
 
 .searchbar_container {
     display: flex;
     align-items: center;
-    width: 90%;
     justify-content: end;
+    padding-right: 2rem;
 }
 
 .searchbar_container {
@@ -30,4 +38,9 @@
         height: 35px;
         width: 195px;
         margin-left: 25px;
+}
+
+.filterclient{
+    display: flex;
+    gap: 22px;
 }

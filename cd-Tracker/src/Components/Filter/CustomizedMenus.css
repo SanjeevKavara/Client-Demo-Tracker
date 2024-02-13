@@ -1,32 +1,40 @@
-.filter_container
-{
-    .MuiButtonBase-root
-    {
-        .MuiButton-endIcon{
-            .MuiSvgIcon-root{
-                position: relative;
-                left: 0;
-            }
-           
-        }
-        
-    }
-   
-}
-
-
-
-.filter_container{
-.MuiButtonBase-root
-{
+#filterBtn {
+   background-color: white;
     color: black;
-}
+    font-weight: 500;
+    font-size: 17px;
+    line-height: 24px;
+    height: 36px;
+    text-transform: capitalize;
+    padding: 10px;
+    width: 91px;
+    gap: 10px;
+    border-radius: 8px;
+    border: solid;
+    border-color: #D7DBE0;
+    border-width: 1px;
 }
 
-.category_dropdown
-{
-    .MuiButtonBase-root
-    {
-        color: black;
+
+
+.MuiButtonBase-root {
+    .MuiSvgIcon-root {
+        right: 14px;
     }
+}
+
+
+.MuiDrawer-root{
+    .MuiPaper-elevation16{
+        background-color: white;
+    }
+}
+
+.MuiDrawer-paperAnchorRight{
+    border-radius: 8px 0px 0px 8px;
+}
+
+.flexDiv{
+    display: flex;
+    justify-content: space-between;
 }

@@ -4,14 +4,15 @@ import Drawer from '@mui/material/Drawer';
 import Button from '@mui/material/Button';
 import TextField from '@mui/material/TextField';
 import { Typography } from '@mui/material';
-import './AddData.css'
 import AddIcon from '@mui/icons-material/Add';
 import Vector from '../../assets/Vector.svg?react'
-import FormContentData from './FormContentData';
 import CloseIcon from '@mui/icons-material/Close';
+import { createTheme, ThemeProvider } from '@mui/material/styles';
+import { lime, purple, } from '@mui/material/colors';
 
 
-export default function TemporaryDrawer() {
+
+export default function EditPopup() {
     const [state, setState] = React.useState({
         right: false, // Only 'right' anchor is set to false initially
     });
@@ -31,13 +32,12 @@ export default function TemporaryDrawer() {
             onClick={(event) => event.stopPropagation()} // Prevent closing the sidebar when clicking inside the form
         // onKeyDown={toggleDrawer('right', false)}
         >
-            <Typography variant="h6">Add Demo Detail</Typography>
+            <Typography variant="h6">Demo Details</Typography>
             <div className="flexDiv">
-            <h2>Add Client Details</h2>
+            <h2>Demo Details</h2>
             <CloseIcon  onClick={toggleDrawer('right', false)} />
             </div>
             
-            <FormContentData />
             {/* <Button variant="contained" color="primary" fullWidth>
                 Submit
             </Button> */}
@@ -46,7 +46,7 @@ export default function TemporaryDrawer() {
 
     return (
         <div>
-            <Button onClick={toggleDrawer('right', true)} id='addBtn'><AddIcon /> Add Demo Detail</Button>
+            <Button onClick={toggleDrawer('right', true)} id='addBtn'><AddIcon /> Edit</Button>
             <Drawer
                 anchor={'right'}
                 open={state['right']}
