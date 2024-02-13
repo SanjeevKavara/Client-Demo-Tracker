@@ -32,6 +32,9 @@ const demotrackerService={
             if((!req.ClientName || req.ClientName.trim() === '') && (!req.ContactPerson || req.ContactPerson.trim() === '') && (!req.Email || req.Email.trim() === '') && (!req.ContactNumber || req.ContactNumber.trim() === '') && (!req.MeetingType || req.MeetingType.trim() === '')){
                 return ('All Fields are required');
             }
+            else if(req.ContactNumber.trim().length !== 10){
+                return ('Invalid Phone Number');
+            }
             else{
                 const documents = await demotracker.Createdemo(req)
                 return (documents);
