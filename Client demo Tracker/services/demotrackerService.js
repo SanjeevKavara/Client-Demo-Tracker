@@ -29,20 +29,18 @@ const demotrackerService={
 
     async createdemoTracker(req){
         try {
-            if((!req.ClientName || req.ClientName.trim() === '') && (!req.ContactPerson || req.ContactPerson.trim() === '') && (!req.Email || req.Email.trim() === '') && (!req.ContactNumber || req.ContactNumber.trim() === '') && (!req.MeetingType || req.MeetingType.trim() === '')){
+            if ((!req.ClientName || req.ClientName.trim() === '') && (!req.ContactPerson || req.ContactPerson.trim() === '') && (!req.Email || req.Email.trim() === '') &&  (!req.ContactNumber || req.ContactNumber.trim() === '') && (!req.MeetingType || req.MeetingType.trim() === '')&&(req.ContactNumber.trim().length !== 10)) {
                 return ('All Fields are required');
             }
-            else if(req.ContactNumber.trim().length !== 10){
-                return ('Invalid Phone Number');
-            }
             else{
-                const documents = await demotracker.Createdemo(req)
-                return (documents);
-            }
+                const documents = await demotracker.Createdemo(req);
+                return documents;
+            }  
         } catch (error) {
             return error;
         }
     },
+    
 
     async viewonedemoTracker(req){
         try {
