@@ -152,8 +152,25 @@ export default function DataTable({ offset, filterRow, filterBool }) {
   useEffect(() => {
     if (filterBool) {
       setRows(filterRow.data);
+    } else {
+      async function fetchData() {
+        try {
+          const response = await listApi(offset);
+          if (response) {
+            // Set the fetched data to the state
+            setRows({});
+            setRows(response.data); // Assuming response.data contains the rows array
+          } else {
+            console.error("Failed to fetch data");
+          }
+        } catch (error) {
+          console.error("Error fetching data:", error);
+        }
+      }
+
+      fetchData();
     }
-  }, [filterRow]);
+  }, [filterRow, filterBool]);
 
   useEffect(() => {
     // Fetch data from listApi when the component mounts

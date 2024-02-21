@@ -27,11 +27,15 @@ function DemoTracker() {
     setFilterRow(res)
   }
 
+  const resetFilter = ()=>{
+    setFilterBool(false)
+  }
+
   return (
     <>
       <div className="container">
         <div className="sub_container">
-          <SearchBar getFilterContent={getFilterContent} searchContent={searchContent} />
+          <SearchBar getFilterContent={getFilterContent} searchContent={searchContent} resetFilter = {resetFilter} />
           {/* sending the offset value to DataTable */}
           <DataTable
             offset={currentPage}

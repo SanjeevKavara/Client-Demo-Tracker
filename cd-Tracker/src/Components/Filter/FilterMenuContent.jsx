@@ -15,7 +15,7 @@ const theme = createTheme({
   },
 });
 
-export default function FilterMenuContent({ getFilterContent }) {
+export default function FilterMenuContent({ getFilterContent, resetFilter }) {
   const [formData, setFormData] = useState({
     DemoDate: "",
     location: "",
@@ -85,6 +85,18 @@ export default function FilterMenuContent({ getFilterContent }) {
     meetRef.current = "";
   };
 
+  const resetHandler = () => {
+    setMeet("");
+    setDemotype("");
+    setFormData({
+      DemoDate: "",
+      location: "",
+      MeetingType: "",
+      DemoStatus: "",
+    });
+    resetFilter();
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <form className="formContent">
@@ -93,7 +105,12 @@ export default function FilterMenuContent({ getFilterContent }) {
             <label>Date</label>
           </div>
           <div className="inputfields">
-            <input type="date" name="DemoDate" onChange={dateChanger} />
+            <input
+              type="date"
+              name="DemoDate"
+              onChange={dateChanger}
+              value={formData.DemoDate}
+            />
           </div>
         </div>
         <div className="meetingtype labelss">
@@ -166,6 +183,7 @@ export default function FilterMenuContent({ getFilterContent }) {
             variant="contained"
             color="secondary"
             className="createBtn"
+            onClick={resetHandler}
             fullWidth
           >
             Reset

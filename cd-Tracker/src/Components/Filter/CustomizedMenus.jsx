@@ -25,7 +25,7 @@ const theme = createTheme({
 });
 
 
-export default function CustomizedMenus({getFilterContent}) {
+export default function CustomizedMenus({getFilterContent,resetFilter}) {
     const [state, setState] = React.useState({
         right: false, // Only 'right' anchor is set to false initially
     });
@@ -50,7 +50,7 @@ export default function CustomizedMenus({getFilterContent}) {
             <h2>Filter</h2>
             <CloseIcon  onClick={toggleDrawer('right', false)} />
             </div>
-            <FilterMenuContent getFilterContent={getFilterContent} />
+            <FilterMenuContent getFilterContent={getFilterContent} resetFilter={resetFilter} />
             
       
             {/* <Button variant="contained" color="primary" fullWidth>

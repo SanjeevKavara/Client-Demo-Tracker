@@ -5,7 +5,7 @@ import CustomizedMenus from '../Filter/CustomizedMenus';
 import TemporaryDrawer from '../addData/Adddata';
 import searchApi from '../../api/searchApi';
 
-function SearchBar({getFilterContent,searchContent}) {
+function SearchBar({getFilterContent,searchContent,resetFilter}) {
 
   const [searchVal,setSearchVal] = useState("");
 
@@ -39,7 +39,7 @@ function SearchBar({getFilterContent,searchContent}) {
         <input className='searchbar' onChange={searchHandler} />
         <SearchIcon onClick={onSearch}/>
         <div className='filterclient'>
-        <CustomizedMenus getFilterContent={getFilterContent} />
+        <CustomizedMenus getFilterContent={getFilterContent} resetFilter = {resetFilter} />
         <TemporaryDrawer />
         </div>
       </div>
