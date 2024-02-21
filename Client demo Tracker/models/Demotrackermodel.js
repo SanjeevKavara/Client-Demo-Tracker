@@ -60,7 +60,6 @@ async function findAll(searchText) {
                 { "Location": { $regex: searchText, $options: 'i' } },
                 { "MeetingType": { $regex: searchText, $options: 'i' } },
                 { "DemoStatus": { $regex: searchText, $options: 'i' } },
-                // Add more fields as needed
             ];
         }
         const details = await DemoTracker.find(filter);
@@ -76,7 +75,7 @@ async function findoneandUpdate(query){
             {_id :query?.id},
             {$set:{Status:"InActive"}},
         );
-        return ("Deleted Successfully"); 
+        return ("demo Deleted Successfully"); 
     } 
     catch (error) {
         throw error; 
@@ -107,7 +106,7 @@ async function Createdemo(query){
                     Status : "Active"
                 }
             )
-            return ("Created Successfully");
+            return ("Demo Created Successfully");
         }
     } catch (error) {
         throw error

@@ -8,7 +8,7 @@ const demoTrackerCommentsSchema = new mongoose.Schema({
     },
     DateComments : [
         {
-            date : {type : Date , required: true},
+            date : {type : Date , required: true, default:Date.now},
             comments : {type : String, required: true}
         }
     ]
