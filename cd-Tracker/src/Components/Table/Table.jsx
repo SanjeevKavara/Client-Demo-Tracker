@@ -12,11 +12,13 @@ import MoreHorizIcon from "@mui/icons-material/MoreHoriz";
 import CreateOutlinedIcon from "@mui/icons-material/CreateOutlined";
 import DeleteIcon from "../../assets/delete.svg?react";
 import EditPopup from "../EditPopup/EditPopup";
+import listApi from "../../api/listApi";
+import { useEffect } from "react";
 
-export default function DataTable() {
+export default function DataTable({ offset, filterRow, filterBool }) {
   const [rows, setRows] = React.useState([
     {
-      id: 1,
+      _id: 1,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "9464556",
@@ -24,12 +26,12 @@ export default function DataTable() {
       DemoDate: "1334566",
       Location: "cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "1",
       actions: "",
     },
     {
-      id: 2,
+      _id: 2,
       ClientName: "Aaludrites",
       ContactPerson: "Pm",
       ContactNumber: "2131331212332132",
@@ -37,12 +39,12 @@ export default function DataTable() {
       DemoDate: "133455566",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "2",
       actions: "",
     },
     {
-      id: 3,
+      _id: 3,
       ClientName: "ganesan",
       ContactPerson: "PM",
       ContactNumber: "32332",
@@ -50,12 +52,12 @@ export default function DataTable() {
       DemoDate: "13343235566",
       Location: "dindigul",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "3",
       actions: "",
     },
     {
-      id: 4,
+      _id: 4,
       ClientName: "Goblin Family",
       ContactPerson: "Hr",
       ContactNumber: "3223131132",
@@ -63,12 +65,12 @@ export default function DataTable() {
       DemoDate: "133432sads35566",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "4",
       actions: "",
     },
     {
-      id: 5,
+      _id: 5,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "3232332",
@@ -76,12 +78,12 @@ export default function DataTable() {
       DemoDate: "13343322sads35566",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "5",
       actions: "",
     },
     {
-      id: 6,
+      _id: 6,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "1261661",
@@ -89,12 +91,12 @@ export default function DataTable() {
       DemoDate: "jsahjkj",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "6",
       actions: "",
     },
     {
-      id: 7,
+      _id: 7,
       ClientName: "Goblin Family",
       ContactPerson: "pM",
       ContactNumber: "3133212132",
@@ -102,12 +104,12 @@ export default function DataTable() {
       DemoDate: "jsahsssjkj",
       Location: "chennai",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "7",
       actions: "",
     },
     {
-      id: 8,
+      _id: 8,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "3133212132",
@@ -115,12 +117,12 @@ export default function DataTable() {
       DemoDate: "jsahsssjkj",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "8",
       actions: "",
     },
     {
-      id: 9,
+      _id: 9,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "3133212132",
@@ -128,12 +130,12 @@ export default function DataTable() {
       DemoDate: "jsahsssjkj",
       Location: "banglore",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "9",
       actions: "",
     },
     {
-      id: 10,
+      _id: 10,
       ClientName: "Goblin Family",
       ContactPerson: "PM",
       ContactNumber: "3133212132",
@@ -141,11 +143,49 @@ export default function DataTable() {
       DemoDate: "jsahsssjkj",
       Location: "Cbe",
       MeetingType: "F2F",
-      DemoStatus: "completed",
+      DemoStatus: "Completed",
       key: "10",
       actions: "",
     },
   ]);
+
+  useEffect(() => {
+    if (filterBool) {
+      setRows(filterRow.data);
+    }
+  }, [filterRow]);
+
+  useEffect(() => {
+    // Fetch data from listApi when the component mounts
+    async function fetchData() {
+      try {
+        const response = await listApi(offset);
+        if (response) {
+          // Set the fetched data to the state
+          setRows({});
+          setRows(response.data); // Assuming response.data contains the rows array
+        } else {
+          console.error("Failed to fetch data");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    fetchData();
+  }, [offset]); // Empty dependency array to run the effect only once on mount
+
+  // const updateData = (id, value, field) => {
+  //   const updatedRows = rows.map((row) => {
+  //     if (row._id === id) {
+
+  //       console.log( "hi "+{ ...row, field: value });
+  //     }
+
+  //   });
+
+  //   // setRows(updatedRows);
+  // };
 
   const selectionChangeHandler = (event, rowIndex) => {
     const updatedRows = [...rows];
@@ -176,12 +216,11 @@ export default function DataTable() {
     //   updatedRows[rowIndex].actions = event.target.value;
     //   setRows(updatedRows);
     // }
-   
   };
 
   const meetingTypes = ["F2F", "Virtual"];
 
-  const demoType = ["yet to present", "completed"];
+  const demoType = ["Yet to Present", "Completed"];
 
   const actionType = ["Edit", "Delete"];
 
@@ -199,12 +238,29 @@ export default function DataTable() {
       sortable: true,
     },
     { field: "Email", headerName: "Email", width: 200, sortable: true },
-    { field: "DemoDate", headerName: "Demo Date", width: 200, sortable: true },
     {
       field: "ContactNumber",
       headerName: "Contact Number",
       width: 200,
       sortable: true,
+    },
+    {
+      field: "DemoDate",
+      headerName: "Demo Date",
+      width: 200,
+      sortable: true,
+      renderCell: (params) => (
+        <span
+        // value={params.formattedValue}
+        >
+          {/* <Button id="meeting-type-label">F2F</Button> */}
+          <MenuItem>
+            {params.formattedValue != null
+              ? params.formattedValue.slice(0, 10)
+              : ""}
+          </MenuItem>
+        </span>
+      ),
     },
     { field: "Location", headerName: "Location", width: 200, sortable: true },
 
@@ -265,12 +321,16 @@ export default function DataTable() {
           onChange={(event) => {
             console.log("params", params);
 
-            demoHandler(event, Number(params.id) - 1);
+            demoHandler(event, Number(params._id));
           }}
           IconComponent={KeyboardArrowDownIcon}
         >
           {demoType.map((type) => (
-            <MenuItem key={type} value={type}>
+            <MenuItem
+              key={type}
+              value={type}
+              // onClick={updateData(params._id, type, "DemoStatus")}
+            >
               {type}
             </MenuItem>
           ))}
@@ -287,7 +347,7 @@ export default function DataTable() {
           onChange={(event) => {
             console.log("params", params);
 
-            actionHandler(event, Number(params.id) - 1);
+            actionHandler(event, Number(params._id));
           }}
           IconComponent={MoreHorizIcon}
         >
@@ -300,7 +360,7 @@ export default function DataTable() {
               </MenuItem>
             ) : (
               <MenuItem key={type} value={type}>
-                <DeleteIcon/>
+                <DeleteIcon />
                 {type}
               </MenuItem>
             )
@@ -316,7 +376,7 @@ export default function DataTable() {
       <DataGrid
         rows={rows}
         columns={columns}
-        getRowId={(row) => row.id}
+        getRowId={(row) => row._id}
         columnIndexes={[0, 1, 2]}
         // onEditCellChange={handleEditCellChange}
       />

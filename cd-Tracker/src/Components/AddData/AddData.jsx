@@ -16,6 +16,10 @@ export default function TemporaryDrawer() {
         right: false, // Only 'right' anchor is set to false initially
     });
 
+    const closeSubmit = ()=>{
+        toggleDrawer('right',false);
+    }
+
     const toggleDrawer = (anchor, open) => (event) => {
         if (event.type === 'keydown' && (event.key === 'Tab' || event.key === 'Shift')) {
             return;
@@ -37,7 +41,7 @@ export default function TemporaryDrawer() {
             <CloseIcon  onClick={toggleDrawer('right', false)} />
             </div>
             
-            <FormContentData />
+            <FormContentData closeSubmit={closeSubmit} />
             {/* <Button variant="contained" color="primary" fullWidth>
                 Submit
             </Button> */}

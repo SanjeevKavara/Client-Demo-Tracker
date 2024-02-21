@@ -1,8 +1,9 @@
-import React, { useState } from "react";
+import React, { useState, useRef } from "react";
 import Button from "@mui/material/Button";
 import { createTheme, ThemeProvider } from "@mui/material/styles";
 import { lime } from "@mui/material/colors";
 import "./FilterMenuContent.css"; // Make sure to import CSS file
+import filterApi from "../../api/filterApi";
 
 const theme = createTheme({
   palette: {
@@ -14,15 +15,18 @@ const theme = createTheme({
   },
 });
 
-export default function FilterMenuContent() {
+export default function FilterMenuContent({ getFilterContent }) {
   const [formData, setFormData] = useState({
-    clientName: "",
-    contactPerson: "",
-    contactNumber: "",
-    emailId: "",
+    DemoDate: "",
     location: "",
-    demoDate: "",
+    MeetingType: "",
+    DemoStatus: "",
   });
+
+  const meetRef = useRef("");
+
+  const [meet, setMeet] = useState("Select Meeting Type");
+  const [demotype, setDemotype] = useState("Select Demo Status Type");
 
   const [locationDropdownOpen, setLocationDropdownOpen] = useState(false);
   const [meetingTypeDropdownOpen, setMeetingTypeDropdownOpen] = useState(false);
@@ -40,6 +44,47 @@ export default function FilterMenuContent() {
     setDemoStatusDropdownOpen(!demoStatusDropdownOpen);
   };
 
+  const dateChanger = (e) => {
+    setFormData({ ...formData, DemoDate: e.target.value });
+  };
+
+  const updateMeetype = (e) => {
+    setMeet(e.target.innerText);
+    setFormData({ ...formData, MeetingType: e.target.innerText });
+  };
+
+  const updateDemoStatus = (e) => {
+    setDemotype(e.target.innerText);
+    setFormData({ ...formData, DemoStatus: e.target.innerText });
+  };
+
+  const handleSubmit = (e) => {
+    e.preventDefault();
+    async function filterData() {
+      try {
+        const response = await filterApi(formData);
+        if (response) {
+          getFilterContent(response);
+        } else {
+          console.error("Failed to create demo user");
+        }
+      } catch (error) {
+        console.error("Error fetching data:", error);
+      }
+    }
+
+    filterData();
+
+    setFormData({
+      DemoDate: "",
+      location: "",
+      MeetingType: "",
+      DemoStatus: "",
+    });
+
+    meetRef.current = "";
+  };
+
   return (
     <ThemeProvider theme={theme}>
       <form className="formContent">
@@ -48,7 +93,7 @@ export default function FilterMenuContent() {
             <label>Date</label>
           </div>
           <div className="inputfields">
-            <input type="date" name="demoDate" />
+            <input type="date" name="DemoDate" onChange={dateChanger} />
           </div>
         </div>
         <div className="meetingtype labelss">
@@ -75,7 +120,7 @@ export default function FilterMenuContent() {
             <label>Meeting Type:</label>
           </div>
           <div className="dropdown" onClick={toggleMeetingTypeDropdown}>
-            <span>Select Meeting Type</span>
+            <span ref={meetRef}>{meet}</span>
             <div
               className={
                 meetingTypeDropdownOpen
@@ -83,9 +128,13 @@ export default function FilterMenuContent() {
                   : "dropdown-contentClose"
               }
             >
-              <p className="optionss">Fact to Face</p>
+              <p className="optionss" onClick={updateMeetype}>
+                F2F
+              </p>
               <hr />
-              <p className="optionss">Virtual</p>
+              <p className="optionss" onClick={updateMeetype}>
+                Virtual
+              </p>
             </div>
           </div>
         </div>
@@ -94,7 +143,7 @@ export default function FilterMenuContent() {
             <label>Demo Status</label>
           </div>
           <div className="dropdown" onClick={toggleDemoStatusDropdown}>
-            <span>Select Demo status Type</span>
+            <span>{demotype}</span>
             <div
               className={
                 demoStatusDropdownOpen
@@ -102,9 +151,13 @@ export default function FilterMenuContent() {
                   : "dropdown-contentClose"
               }
             >
-              <p className="optionss">Fact to Face</p>
+              <p className="optionss" onClick={updateDemoStatus}>
+                F2F
+              </p>
               <hr />
-              <p className="optionss">Virtual</p>
+              <p className="optionss" onClick={updateDemoStatus}>
+                Virtual
+              </p>
             </div>
           </div>
         </div>
@@ -121,6 +174,8 @@ export default function FilterMenuContent() {
             variant="contained"
             color="secondary"
             className="createBtn"
+            type="submit"
+            onClick={handleSubmit}
             fullWidth
           >
             Apply
